@@ -9,22 +9,69 @@
 
 
 ## 핵심 내용
+# 역순정렬, 간격 지정 출력 기억하기
 print(numbers[::2])   # 출력: [0, 2, 4] (2칸 간격으로 추출)
-# print(numbers[::-1])  # 출력: [5, 4, 3, 2, 1, 0] (역순 정렬)
+print(numbers[::-1])  # 출력: [5, 4, 3, 2, 1, 0] (역순 정렬)
 
+#두 개의 리스트나 두 개의 튜플을 + 연산자로 더하면 합쳐짐
 
+#두 개의 리스트나 두 개의 튜플을 * 연산자로 곱하면 횟수만큼 반복된 복제본을 만듦
 
-### 개념
+# 특정 값이 시퀀스에 포함되있는지 알고 싶다면
+  user_roles = ["admin", "editor", "member"]
+  print(len(user_roles))       # 출력: 3
+  print("admin" in user_roles)  # 출력: True (존재 여부 확인 결과 도출)
+  print("guest" not in user_roles) # 출력: True
 
--
+#패킹, 언패킹
+  packed_data = 1, 2, 3  # 자동으로 튜플로 패킹됨 (1, 2, 3)
+  a, b, c = packed_data  # 언패킹 실행
+  print(a) #1 출력
+  - 변수명 앞에 별표(*)를 붙여주면 매핑되고 남은 나머지 데이터들이 자동으로 하나의 리스트로 패킹되어 묶임
+    first, *others = [10, 20, 30, 40]
+    print(first)   # 출력: 10
+    print(others)  # 출력: [20, 30, 40] (나머지 요소들이 리스트로 묶임)
 
-### 예제
+#딕셔너리
+  - get()
+      price = menu.get("juice", 5000) # juice가 없으므로 기본값 5000을 반환
+      print(price)  # 출력: 5000
+#set
+  - 인덱스 활용 안됨.
+  - 중복 데이터는 제외시킴
+  # 집합 선언과 중복 제거 확인
+    my_set = set([1, 2, 2, 3, 3, 3])
+    print(my_set)  # 출력: {1, 2, 3} (중복이 자동으로 제거됨)
 
-```text
-<!-- 코드나 명령어 예제를 작성합니다. -->
-```
+    set_a = {1, 2, 3}
+    set_b = {3, 4, 5}
 
-## 헷갈렸던 점 / 시행착오
+    print(set_a & set_b)  # 교집합 출력: {3}
+    print(set_a | set_b)  # 합집합 출력: {1, 2, 3, 4, 5}
+    print(set_a - set_b)  # 차집합 출력: {1, 2}
+    print(3 in set_a)     # 포함 여부 확인 결과 도출: True
+
+#실무 데이터 정제 패턴
+  raw_emails = ["a@sparta.com", "b@sparta.com", "a@sparta.com"]
+
+  # 1단계: 집합으로 변환하여 중복 제거
+unique_set = set(raw_emails) 
+
+  # 2단계: 다시 리스트로 돌려놓아 슬라이싱 및 요소 접근을 위한 순서적 활용 보장
+  refined_emails = list(unique_set)
+  print(refined_emails)  # 출력: ['a@sparta.com', 'b@sparta.com']
+
+#조건문
+  : 복잡한 중첩 구조보다는 논리 연산자(and, or)를 활용하자
+  # 1. 들여쓰기가 깊어지는 중첩 조건문 구조 (권장 X)
+  if is_logged_in:
+      if has_permission:
+          print("관리자 대시보드 진입")
+
+  # 2. 논리 연산자를 결합한 클린 코드 최적화 구조 (권장 O)
+  if is_logged_in and has_permission:
+      print("관리자 대시보드 진입")
+
 
 -
 
