@@ -1,0 +1,38 @@
+# TIL — 2026-08-11
+
+- 분야: Python
+- 학습 유형: 개념 / 실습
+
+## 오늘 배운 것
+- for 문
+
+- range()
+  :시작점과 끝점, 증감폭을 지정한 반복 실행
+    for i in range(1, 6, 2):
+      print(i)  # 출력 결과: 1, 3, 5
+
+- while 문
+  : 조건식을 활용한 기본 while 문 구조
+    numbers = 1
+
+    while numbers <= 3:
+      print(f"현재 숫자는 {numbers}입니다.")
+      numbers += 1  # 종료 조건을 유도하기 위한 상태 변경
+
+- break, continue
+
+- 함수 정의
+
+- 함수 기본값 매개변수
+  : 기본값을 가진 매개변수는 반드시 기본값이 없는 매개변수보다 뒤쪽에 배치할 것
+  : 근데 None으로 뒀을 떄 상관없음
+
+    def introduce(name, age=20):
+      print(f"이름은 {name}이고, 나이는 {age}세입니다.")
+
+    def introduce(name=None, age=20):
+      print(f"이름은 {name}이고, 나이는 {age}세입니다.")
+
+- 가변 인수(*args)와 키워드 가변 인수(**kwargs)
+- return 문
+  : return을 만나는 순간, 하위에 코드가 얼마나 남아있든 상관하지 않고 함수를 즉시 종료하고 탈출하는 제어 특성이 있음
