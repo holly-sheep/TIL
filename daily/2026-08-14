@@ -8,4 +8,21 @@
 - 클래스, 메소드, instance, 오버라이딩
 - 정보은닉 __
 - 캡슐화
+- all() -> 리스트가 비어있어도 True를 반환하니까 먼저 리스트가 비어있는지 확인할 것
 
+- enumerate() : 인덱스 자동 부여
+  : 프린트할 때 인덱스와 변수가 같이 나오게 만들어줌
+    tasks = ["데이터 확인", "보고서 작성", "결과 공유"]
+    for number, task in enumerate(tasks, start=1):
+          print(f"{number}. {task}")
+
+-  zip() : 다중 데이터 결합
+    : 두 개 이상의 리스트를 짝지어서 결합해줌.
+      products = ["노트북", "키보드", "마우스"]
+      prices = [1200000, 80000, 40000]
+
+      for product, price in zip(products, prices):
+            print(f"{product}: {price}원")
+
+- sorted()
+  : reverse = True #내림차순 정렬
